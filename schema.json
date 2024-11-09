@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://or.fer.unizg.hr/nfl_teams_schema.json",
+  "type": "array",
+  "title": "NFL Teams",
+  "description": "Dataset of NFL teams with metadata and player information.",
+  "items": {
+    "type": "object",
+    "title": "Team",
+    "description": "Object containing all data about a single NFL team.",
+    "required": [
+      "name",
+      "city",
+      "founded",
+      "stadium",
+      "division",
+      "conference",
+      "coach",
+      "owner",
+      "titles",
+      "webpage",
+      "players"
+    ],
+    "properties": {
+      "name": {
+        "type": "string",
+        "title": "Name",
+        "description": "The name of the team."
+      },
+      "city": {
+        "type": "string",
+        "title": "City",
+        "description": "The city where the team is based."
+      },
+      "founded": {
+        "type": "integer",
+        "title": "Founded",
+        "description": "The year the team was founded."
+      },
+      "stadium": {
+        "type": "string",
+        "title": "Stadium",
+        "description": "The home stadium of the team."
+      },
+      "division": {
+        "type": "string",
+        "title": "Division",
+        "description": "The division to which the team belongs."
+      },
+      "conference": {
+        "type": "string",
+        "title": "Conference",
+        "description": "The conference to which the team belongs."
+      },
+      "coach": {
+        "type": "string",
+        "title": "Coach",
+        "description": "The name of the team's head coach."
+      },
+      "owner": {
+        "type": "string",
+        "title": "Owner",
+        "description": "The name of the team's owner."
+      },
+      "titles": {
+        "type": "integer",
+        "title": "Titles",
+        "description": "The number of titles won by the team."
+      },
+      "webpage": {
+        "type": "string",
+        "title": "Webpage",
+        "description": "The official webpage of the team."
+      },
+      "players": {
+        "type": "array",
+        "title": "Players",
+        "description": "List of players on the team.",
+        "items": {
+          "type": "object",
+          "title": "Player",
+          "description": "An object representing a player on the team.",
+          "required": [
+            "playername",
+            "playersurname",
+            "jerseynumber",
+            "position"
+          ],
+          "properties": {
+            "playername": {
+              "type": "string",
+              "title": "Player Name",
+              "description": "The first name of a player on the team."
+            },
+            "playersurname": {
+              "type": "string",
+              "title": "Player Surname",
+              "description": "The last name of a player on the team."
+            },
+            "jerseynumber": {
+              "type": "integer",
+              "title": "Jersey Number",
+              "description": "The player's jersey number."
+            },
+            "position": {
+              "type": "string",
+              "title": "Position",
+              "description": "The player's position on the team."
+            }
+          }
+        }
+      }
+    }
+  }
+}

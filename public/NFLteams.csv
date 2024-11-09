@@ -1,0 +1,76 @@
+Team ID,Team Name,City,Founded,Stadium,Coach,Conference,Division,Titles,Owner,Web-page,Player Name,Player Surname,Player Position,Player Jersey Number
+3,New England Patriots,Foxborough,1959,Gillette Stadium,Bill Belichick,AFC,East,6,Robert Kraft,https://www.patriots.com,Mac,Jones,Quarterback,10
+3,New England Patriots,Foxborough,1959,Gillette Stadium,Bill Belichick,AFC,East,6,Robert Kraft,https://www.patriots.com,Damien,Harris,Running Back,37
+3,New England Patriots,Foxborough,1959,Gillette Stadium,Bill Belichick,AFC,East,6,Robert Kraft,https://www.patriots.com,Jakobi,Meyers,Wide Receiver,16
+3,New England Patriots,Foxborough,1959,Gillette Stadium,Bill Belichick,AFC,East,6,Robert Kraft,https://www.patriots.com,Hunter,Henry,Tight End,85
+3,New England Patriots,Foxborough,1959,Gillette Stadium,Bill Belichick,AFC,East,6,Robert Kraft,https://www.patriots.com,Matthew,Judon,Linebacker,9
+2,Green Bay Packers,Green Bay,1919,Lambeau Field,Matt LaFleur,NFC,North,13,"Green Bay Packers, Inc.",https://www.packers.com,Aaron,Rodgers,Quarterback,12
+2,Green Bay Packers,Green Bay,1919,Lambeau Field,Matt LaFleur,NFC,North,13,"Green Bay Packers, Inc.",https://www.packers.com,Aaron,Jones,Running Back,33
+2,Green Bay Packers,Green Bay,1919,Lambeau Field,Matt LaFleur,NFC,North,13,"Green Bay Packers, Inc.",https://www.packers.com,Davante,Adams,Wide Receiver,17
+2,Green Bay Packers,Green Bay,1919,Lambeau Field,Matt LaFleur,NFC,North,13,"Green Bay Packers, Inc.",https://www.packers.com,Robert,Tonyan,Tight End,85
+2,Green Bay Packers,Green Bay,1919,Lambeau Field,Matt LaFleur,NFC,North,13,"Green Bay Packers, Inc.",https://www.packers.com,ZaDarius,Smith,Linebacker,55
+1,Dallas Cowboys,Dallas,1960,AT&T Stadium,Mike McCarthy,NFC,East,5,Jerry Jones,https://www.dallascowboys.com,Dak,Prescott,Quarterback,4
+1,Dallas Cowboys,Dallas,1960,AT&T Stadium,Mike McCarthy,NFC,East,5,Jerry Jones,https://www.dallascowboys.com,Ezekiel,Elliott,Running Back,21
+1,Dallas Cowboys,Dallas,1960,AT&T Stadium,Mike McCarthy,NFC,East,5,Jerry Jones,https://www.dallascowboys.com,Amari,Cooper,Wide Receiver,19
+1,Dallas Cowboys,Dallas,1960,AT&T Stadium,Mike McCarthy,NFC,East,5,Jerry Jones,https://www.dallascowboys.com,Dalton,Schultz,Tight End,86
+1,Dallas Cowboys,Dallas,1960,AT&T Stadium,Mike McCarthy,NFC,East,5,Jerry Jones,https://www.dallascowboys.com,Micah,Parsons,Linebacker,11
+4,Kansas City Chiefs,Kansas City,1960,Arrowhead Stadium,Andy Reid,AFC,West,3,Clark Hunt,https://www.chiefs.com,Patrick,Mahomes,Quarterback,15
+4,Kansas City Chiefs,Kansas City,1960,Arrowhead Stadium,Andy Reid,AFC,West,3,Clark Hunt,https://www.chiefs.com,Clyde,Edwards-Helaire,Running Back,25
+4,Kansas City Chiefs,Kansas City,1960,Arrowhead Stadium,Andy Reid,AFC,West,3,Clark Hunt,https://www.chiefs.com,Tyreek,Hill,Wide Receiver,10
+4,Kansas City Chiefs,Kansas City,1960,Arrowhead Stadium,Andy Reid,AFC,West,3,Clark Hunt,https://www.chiefs.com,Travis,Kelce,Tight End,87
+4,Kansas City Chiefs,Kansas City,1960,Arrowhead Stadium,Andy Reid,AFC,West,3,Clark Hunt,https://www.chiefs.com,Frank,Clark,Defensive End,55
+5,San Francisco 49ers,San Francisco,1946,Levis Stadium,Kyle Shanahan,NFC,West,5,Denise DeBartolo York,https://www.49ers.com,Jimmy,Garoppolo,Quarterback,10
+5,San Francisco 49ers,San Francisco,1946,Levis Stadium,Kyle Shanahan,NFC,West,5,Denise DeBartolo York,https://www.49ers.com,Raheem,Mostert,Running Back,31
+5,San Francisco 49ers,San Francisco,1946,Levis Stadium,Kyle Shanahan,NFC,West,5,Denise DeBartolo York,https://www.49ers.com,Deebo,Samuel,Wide Receiver,19
+5,San Francisco 49ers,San Francisco,1946,Levis Stadium,Kyle Shanahan,NFC,West,5,Denise DeBartolo York,https://www.49ers.com,George,Kittle,Tight End,85
+5,San Francisco 49ers,San Francisco,1946,Levis Stadium,Kyle Shanahan,NFC,West,5,Denise DeBartolo York,https://www.49ers.com,Nick,Bosa,Defensive End,97
+6,Pittsburgh Steelers,Pittsburgh,1933,Heinz Field,Mike Tomlin,AFC,North,6,Rooney Family,https://www.steelers.com,Ben,Roethlisberger,Quarterback,7
+6,Pittsburgh Steelers,Pittsburgh,1933,Heinz Field,Mike Tomlin,AFC,North,6,Rooney Family,https://www.steelers.com,Najee,Harris,Running Back,22
+6,Pittsburgh Steelers,Pittsburgh,1933,Heinz Field,Mike Tomlin,AFC,North,6,Rooney Family,https://www.steelers.com,JuJu,Smith-Schuster,Wide Receiver,19
+6,Pittsburgh Steelers,Pittsburgh,1933,Heinz Field,Mike Tomlin,AFC,North,6,Rooney Family,https://www.steelers.com,Eric,Ebron,Tight End,85
+6,Pittsburgh Steelers,Pittsburgh,1933,Heinz Field,Mike Tomlin,AFC,North,6,Rooney Family,https://www.steelers.com,T.J.,Watt,Linebacker,90
+7,Philadelphia Eagles,Philadelphia,1933,Lincoln Financial Field,Nick Sirianni,NFC,East,1,Jeffrey Lurie,https://www.philadelphiaeagles.com,Jalen,Hurts,Quarterback,1
+7,Philadelphia Eagles,Philadelphia,1933,Lincoln Financial Field,Nick Sirianni,NFC,East,1,Jeffrey Lurie,https://www.philadelphiaeagles.com,Miles,Sanders,Running Back,26
+7,Philadelphia Eagles,Philadelphia,1933,Lincoln Financial Field,Nick Sirianni,NFC,East,1,Jeffrey Lurie,https://www.philadelphiaeagles.com,DeVonta,Smith,Wide Receiver,6
+7,Philadelphia Eagles,Philadelphia,1933,Lincoln Financial Field,Nick Sirianni,NFC,East,1,Jeffrey Lurie,https://www.philadelphiaeagles.com,Dallas,Goedert,Tight End,88
+7,Philadelphia Eagles,Philadelphia,1933,Lincoln Financial Field,Nick Sirianni,NFC,East,1,Jeffrey Lurie,https://www.philadelphiaeagles.com,Darius,Slay,Cornerback,2
+8,Seattle Seahawks,Seattle,1976,Lumen Field,Pete Carroll,NFC,West,1,Paul Allen Trust,https://www.seahawks.com,Russell,Wilson,Quarterback,3
+8,Seattle Seahawks,Seattle,1976,Lumen Field,Pete Carroll,NFC,West,1,Paul Allen Trust,https://www.seahawks.com,Chris,Carson,Running Back,32
+8,Seattle Seahawks,Seattle,1976,Lumen Field,Pete Carroll,NFC,West,1,Paul Allen Trust,https://www.seahawks.com,Tyler,Lockett,Wide Receiver,16
+8,Seattle Seahawks,Seattle,1976,Lumen Field,Pete Carroll,NFC,West,1,Paul Allen Trust,https://www.seahawks.com,D.K.,Metcalf,Wide Receiver,14
+8,Seattle Seahawks,Seattle,1976,Lumen Field,Pete Carroll,NFC,West,1,Paul Allen Trust,https://www.seahawks.com,Bobby,Wagner,Linebacker,54
+9,Denver Broncos,Denver,1960,Empower Field at Mile High,Sean Payton,AFC,West,3,Walton-Penner Family Ownership Group,https://www.denverbroncos.com,Teddy,Bridgewater,Quarterback,5
+9,Denver Broncos,Denver,1960,Empower Field at Mile High,Sean Payton,AFC,West,3,Walton-Penner Family Ownership Group,https://www.denverbroncos.com,Melvin,Gordon,Running Back,25
+9,Denver Broncos,Denver,1960,Empower Field at Mile High,Sean Payton,AFC,West,3,Walton-Penner Family Ownership Group,https://www.denverbroncos.com,Courtland,Sutton,Wide Receiver,14
+9,Denver Broncos,Denver,1960,Empower Field at Mile High,Sean Payton,AFC,West,3,Walton-Penner Family Ownership Group,https://www.denverbroncos.com,Noah,Fant,Tight End,87
+9,Denver Broncos,Denver,1960,Empower Field at Mile High,Sean Payton,AFC,West,3,Walton-Penner Family Ownership Group,https://www.denverbroncos.com,Bradley,Chubb,Linebacker,55
+10,Miami Dolphins,Miami,1966,Hard Rock Stadium,Mike McDaniel,AFC,East,2,Stephen M. Ross,https://www.miamidolphins.com,Tua,Tagovailoa,Quarterback,1
+10,Miami Dolphins,Miami,1966,Hard Rock Stadium,Mike McDaniel,AFC,East,2,Stephen M. Ross,https://www.miamidolphins.com,Myles,Gaskin,Running Back,37
+10,Miami Dolphins,Miami,1966,Hard Rock Stadium,Mike McDaniel,AFC,East,2,Stephen M. Ross,https://www.miamidolphins.com,Jaylen,Waddle,Wide Receiver,17
+10,Miami Dolphins,Miami,1966,Hard Rock Stadium,Mike McDaniel,AFC,East,2,Stephen M. Ross,https://www.miamidolphins.com,Mike,Gesicki,Tight End,88
+10,Miami Dolphins,Miami,1966,Hard Rock Stadium,Mike McDaniel,AFC,East,2,Stephen M. Ross,https://www.miamidolphins.com,Xavien,Howard,Cornerback,25
+11,New York Giants,New York,1925,MetLife Stadium,Brian Daboll,NFC,East,4,John Mara & Steve Tisch,https://www.giants.com,Daniel,Jones,Quarterback,8
+11,New York Giants,New York,1925,MetLife Stadium,Brian Daboll,NFC,East,4,John Mara & Steve Tisch,https://www.giants.com,Saquon,Barkley,Running Back,26
+11,New York Giants,New York,1925,MetLife Stadium,Brian Daboll,NFC,East,4,John Mara & Steve Tisch,https://www.giants.com,Kenny,Golladay,Wide Receiver,19
+11,New York Giants,New York,1925,MetLife Stadium,Brian Daboll,NFC,East,4,John Mara & Steve Tisch,https://www.giants.com,Evan,Engram,Tight End,88
+11,New York Giants,New York,1925,MetLife Stadium,Brian Daboll,NFC,East,4,John Mara & Steve Tisch,https://www.giants.com,Leonard,Williams,Defensive End,99
+12,Chicago Bears,Chicago,1920,Soldier Field,Matt Eberflus,NFC,North,9,Virginia Halas McCaskey,https://www.chicagobears.com,Justin,Fields,Quarterback,1
+12,Chicago Bears,Chicago,1920,Soldier Field,Matt Eberflus,NFC,North,9,Virginia Halas McCaskey,https://www.chicagobears.com,David,Montgomery,Running Back,32
+12,Chicago Bears,Chicago,1920,Soldier Field,Matt Eberflus,NFC,North,9,Virginia Halas McCaskey,https://www.chicagobears.com,Allen,Robinson,Wide Receiver,12
+12,Chicago Bears,Chicago,1920,Soldier Field,Matt Eberflus,NFC,North,9,Virginia Halas McCaskey,https://www.chicagobears.com,Cole,Kmet,Tight End,85
+12,Chicago Bears,Chicago,1920,Soldier Field,Matt Eberflus,NFC,North,9,Virginia Halas McCaskey,https://www.chicagobears.com,Khalil,Mack,Linebacker,52
+13,Buffalo Bills,Buffalo,1960,Highmark Stadium,Sean McDermott,AFC,East,0,Terry Pegula,https://www.buffalobills.com,Josh,Allen,Quarterback,17
+13,Buffalo Bills,Buffalo,1960,Highmark Stadium,Sean McDermott,AFC,East,0,Terry Pegula,https://www.buffalobills.com,Devin,Singletary,Running Back,26
+13,Buffalo Bills,Buffalo,1960,Highmark Stadium,Sean McDermott,AFC,East,0,Terry Pegula,https://www.buffalobills.com,Stefon,Diggs,Wide Receiver,14
+13,Buffalo Bills,Buffalo,1960,Highmark Stadium,Sean McDermott,AFC,East,0,Terry Pegula,https://www.buffalobills.com,Dawson,Knox,Tight End,88
+13,Buffalo Bills,Buffalo,1960,Highmark Stadium,Sean McDermott,AFC,East,0,Terry Pegula,https://www.buffalobills.com,Tremaine,Edmunds,Linebacker,49
+14,Baltimore Ravens,Baltimore,1996,M&T Bank Stadium,John Harbaugh,AFC,North,2,Steve Bisciotti,https://www.baltimoreravens.com,Lamar,Jackson,Quarterback,8
+14,Baltimore Ravens,Baltimore,1996,M&T Bank Stadium,John Harbaugh,AFC,North,2,Steve Bisciotti,https://www.baltimoreravens.com,Gus,Edwards,Running Back,35
+14,Baltimore Ravens,Baltimore,1996,M&T Bank Stadium,John Harbaugh,AFC,North,2,Steve Bisciotti,https://www.baltimoreravens.com,Marquise,Brown,Wide Receiver,5
+14,Baltimore Ravens,Baltimore,1996,M&T Bank Stadium,John Harbaugh,AFC,North,2,Steve Bisciotti,https://www.baltimoreravens.com,Mark,Andrews,Tight End,89
+14,Baltimore Ravens,Baltimore,1996,M&T Bank Stadium,John Harbaugh,AFC,North,2,Steve Bisciotti,https://www.baltimoreravens.com,Marlon,Humphrey,Cornerback,44
+15,Minnesota Vikings,Minneapolis,1961,U.S. Bank Stadium,Kevin OConnell,NFC,North,0,Zygi Wilf,https://www.vikings.com,Kirk,Cousins,Quarterback,8
+15,Minnesota Vikings,Minneapolis,1961,U.S. Bank Stadium,Kevin OConnell,NFC,North,0,Zygi Wilf,https://www.vikings.com,Dalvin,Cook,Running Back,33
+15,Minnesota Vikings,Minneapolis,1961,U.S. Bank Stadium,Kevin OConnell,NFC,North,0,Zygi Wilf,https://www.vikings.com,Justin,Jefferson,Wide Receiver,18
+15,Minnesota Vikings,Minneapolis,1961,U.S. Bank Stadium,Kevin OConnell,NFC,North,0,Zygi Wilf,https://www.vikings.com,Adam,Thielen,Wide Receiver,19
+15,Minnesota Vikings,Minneapolis,1961,U.S. Bank Stadium,Kevin OConnell,NFC,North,0,Zygi Wilf,https://www.vikings.com,Eric,Kendricks,Linebacker,54

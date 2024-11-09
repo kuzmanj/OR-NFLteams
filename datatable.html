@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NFL teams</title>
+  </head>
+  <body>
+    <h1>Search data</h1>
+
+    <form id="searchForm">
+      <label for="attributeSelect">Choose an attribute:</label>
+      <select id="attributeSelect">
+        <option value="wildcard">-</option>
+        <option value="name">Name</option>
+        <option value="city">City</option>
+        <option value="founded">Founded</option>
+        <option value="stadium">Stadium</option>
+        <option value="division">Division</option>
+        <option value="conference">Conference</option>
+        <option value="coach">Coach</option>
+        <option value="owner">Owner</option>
+        <option value="titles">Titles</option>
+        <option value="webpage">Webpage</option>
+        <option value="playername">Player name</option>
+        <option value="playername">Player surname</option>
+        <option value="jerseynumber">Jersey number</option>
+        <option value="position">Player position</option>
+      </select>
+      <input type="text" id="searchInput" placeholder="Search..." />
+      <button type="submit">Search</button>
+      <button type="button" id="resetButton">Reset</button>
+    </form>
+
+    <button id="downloadCsv">Download as CSV</button>
+    <button id="downloadJson">Download as JSON</button>
+
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+          <th>Founded</th>
+          <th>Stadium</th>
+          <th>Division</th>
+          <th>Conference</th>
+          <th>Coach</th>
+          <th>Owner</th>
+          <th>Titles</th>
+          <th>Webpage</th>
+          <th>Player name</th>
+          <th>Player surname</th>
+          <th>Number</th>
+          <th>Position</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      function displayData(data) {
+        const tableBody = document
+          .getElementById("dataTable")
+          .getElementsByTagName("tbody")[0];
+        tableBody.innerHTML = "";
+        data.forEach((element) => {
+          const row = tableBody.insertRow();
+          row.insertCell(0).textContent = element.name;
+          row.insertCell(1).textContent = element.city;
+          row.insertCell(2).textContent = element.founded;
+          row.insertCell(3).textContent = element.stadium;
+          row.insertCell(4).textContent = element.division;
+          row.insertCell(5).textContent = element.conference;
+          row.insertCell(6).textContent = element.coach;
+          row.insertCell(7).textContent = element.owner;
+          row.insertCell(8).textContent = element.titles;
+          row.insertCell(9).textContent = element.webpage;
+          row.insertCell(10).textContent = element.playername;
+          row.insertCell(11).textContent = element.playersurname;
+          row.insertCell(12).textContent = element.jerseynumber;
+          row.insertCell(13).textContent = element.position;
+        });
+      }
+
+      function fetchData(search = "", attribute = "") {
+        fetch(
+          `http://localhost:5004/api/teams?search=${encodeURIComponent(
+            search
+          )}&attribute=${encodeURIComponent(attribute)}`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            displayData(data);
+            window.currentData = data;
+          });
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        fetchData();
+      });
+
+      document
+        .getElementById("searchForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const query = document.getElementById("searchInput").value;
+          const attribute = document.getElementById("attributeSelect").value;
+          fetchData(query, attribute);
+        });
+
+      document
+        .getElementById("resetButton")
+        .addEventListener("click", function () {
+          document.getElementById("searchInput").value = "";
+          document.getElementById("attributeSelect").value = "";
+          fetchData();
+        });
+
+      document
+        .getElementById("downloadJson")
+        .addEventListener("click", function () {
+          const groupedData = {};
+          window.currentData.forEach((item) => {
+            if (!groupedData[item.name]) {
+              groupedData[item.name] = {
+                name: item.name,
+                city: item.city,
+                founded: item.founded,
+                stadium: item.stadium,
+                division: item.division,
+                conference: item.conference,
+                coach: item.coach,
+                owner: item.owner,
+                titles: item.titles,
+                webpage: item.webpage,
+                players: [],
+              };
+            }
+            groupedData[item.name].players.push({
+              playername: item.playername,
+              playersurname: item.playersurname,
+              jerseynumber: item.jerseynumber,
+              position: item.position,
+            });
+          });
+          const dataStr = JSON.stringify(Object.values(groupedData), null, 2);
+          const blob = new Blob([dataStr], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "teams.json";
+          a.click();
+          URL.revokeObjectURL(url);
+        });
+
+      document
+        .getElementById("downloadCsv")
+        .addEventListener("click", function () {
+          let csv =
+            "Name,City,Founded,Stadium,Division,Conference,Coach,Owner,Titles,Webpage,Player name,Player surname,Number,Position\n";
+          window.currentData.forEach((item) => {
+            csv += `${item.name},${item.city},${item.founded},${item.stadium},${item.division},${item.conference},${item.coach},${item.owner},${item.titles},${item.webpage},${item.playername},${item.playersurname},${item.jerseynumber},${item.position}\n`;
+          });
+          const blob = new Blob([csv], { type: "text/csv" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "teams.csv";
+          a.click();
+          URL.revokeObjectURL(url);
+        });
+    </script>
+  </body>
+</html>

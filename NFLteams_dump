@@ -1,0 +1,290 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 15.3
+-- Dumped by pg_dump version 16.1
+
+-- Started on 2024-10-25 13:58:36 CEST
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 217 (class 1259 OID 23417)
+-- Name: players; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.players (
+    id integer NOT NULL,
+    name character varying(50) NOT NULL,
+    surname character varying(50) NOT NULL,
+    "position" character varying(50),
+    jerseynumber integer,
+    team integer
+);
+
+
+ALTER TABLE public.players OWNER TO postgres;
+
+--
+-- TOC entry 216 (class 1259 OID 23416)
+-- Name: players_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.players_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.players_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3602 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: players_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.players_id_seq OWNED BY public.players.id;
+
+
+--
+-- TOC entry 215 (class 1259 OID 23407)
+-- Name: teams; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.teams (
+    id integer NOT NULL,
+    name character varying(100) NOT NULL,
+    city character varying(100),
+    founded integer,
+    stadium character varying(100),
+    coach character varying(100),
+    division character varying(50),
+    conference character varying(50),
+    titles integer,
+    owner character varying(100),
+    webpage character varying(100)
+);
+
+
+ALTER TABLE public.teams OWNER TO postgres;
+
+--
+-- TOC entry 214 (class 1259 OID 23406)
+-- Name: teams_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.teams_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.teams_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3603 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: teams_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.teams_id_seq OWNED BY public.teams.id;
+
+
+--
+-- TOC entry 3445 (class 2604 OID 23420)
+-- Name: players id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.players ALTER COLUMN id SET DEFAULT nextval('public.players_id_seq'::regclass);
+
+
+--
+-- TOC entry 3444 (class 2604 OID 23410)
+-- Name: teams id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.teams ALTER COLUMN id SET DEFAULT nextval('public.teams_id_seq'::regclass);
+
+
+--
+-- TOC entry 3596 (class 0 OID 23417)
+-- Dependencies: 217
+-- Data for Name: players; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.players (id, name, surname, "position", jerseynumber, team) FROM stdin;
+1	Mac	Jones	Quarterback	10	3
+2	Damien	Harris	Running Back	37	3
+3	Jakobi	Meyers	Wide Receiver	16	3
+4	Hunter	Henry	Tight End	85	3
+5	Matthew	Judon	Linebacker	9	3
+6	Aaron	Rodgers	Quarterback	12	2
+7	Aaron	Jones	Running Back	33	2
+8	Davante	Adams	Wide Receiver	17	2
+9	Robert	Tonyan	Tight End	85	2
+10	ZaDarius	Smith	Linebacker	55	2
+11	Dak	Prescott	Quarterback	4	1
+12	Ezekiel	Elliott	Running Back	21	1
+13	Amari	Cooper	Wide Receiver	19	1
+14	Dalton	Schultz	Tight End	86	1
+15	Micah	Parsons	Linebacker	11	1
+16	Patrick	Mahomes	Quarterback	15	4
+17	Clyde	Edwards-Helaire	Running Back	25	4
+18	Tyreek	Hill	Wide Receiver	10	4
+19	Travis	Kelce	Tight End	87	4
+20	Frank	Clark	Defensive End	55	4
+21	Jimmy	Garoppolo	Quarterback	10	5
+22	Raheem	Mostert	Running Back	31	5
+23	Deebo	Samuel	Wide Receiver	19	5
+24	George	Kittle	Tight End	85	5
+25	Nick	Bosa	Defensive End	97	5
+26	Ben	Roethlisberger	Quarterback	7	6
+27	Najee	Harris	Running Back	22	6
+28	JuJu	Smith-Schuster	Wide Receiver	19	6
+29	Eric	Ebron	Tight End	85	6
+30	T.J.	Watt	Linebacker	90	6
+31	Jalen	Hurts	Quarterback	1	7
+32	Miles	Sanders	Running Back	26	7
+33	DeVonta	Smith	Wide Receiver	6	7
+34	Dallas	Goedert	Tight End	88	7
+35	Darius	Slay	Cornerback	2	7
+36	Russell	Wilson	Quarterback	3	8
+37	Chris	Carson	Running Back	32	8
+38	Tyler	Lockett	Wide Receiver	16	8
+39	D.K.	Metcalf	Wide Receiver	14	8
+40	Bobby	Wagner	Linebacker	54	8
+41	Teddy	Bridgewater	Quarterback	5	9
+42	Melvin	Gordon	Running Back	25	9
+43	Courtland	Sutton	Wide Receiver	14	9
+44	Noah	Fant	Tight End	87	9
+45	Bradley	Chubb	Linebacker	55	9
+46	Tua	Tagovailoa	Quarterback	1	10
+47	Myles	Gaskin	Running Back	37	10
+48	Jaylen	Waddle	Wide Receiver	17	10
+49	Mike	Gesicki	Tight End	88	10
+50	Xavien	Howard	Cornerback	25	10
+51	Daniel	Jones	Quarterback	8	11
+52	Saquon	Barkley	Running Back	26	11
+53	Kenny	Golladay	Wide Receiver	19	11
+54	Evan	Engram	Tight End	88	11
+55	Leonard	Williams	Defensive End	99	11
+56	Justin	Fields	Quarterback	1	12
+57	David	Montgomery	Running Back	32	12
+58	Allen	Robinson	Wide Receiver	12	12
+59	Cole	Kmet	Tight End	85	12
+60	Khalil	Mack	Linebacker	52	12
+61	Josh	Allen	Quarterback	17	13
+62	Devin	Singletary	Running Back	26	13
+63	Stefon	Diggs	Wide Receiver	14	13
+64	Dawson	Knox	Tight End	88	13
+65	Tremaine	Edmunds	Linebacker	49	13
+66	Lamar	Jackson	Quarterback	8	14
+67	Gus	Edwards	Running Back	35	14
+68	Marquise	Brown	Wide Receiver	5	14
+69	Mark	Andrews	Tight End	89	14
+70	Marlon	Humphrey	Cornerback	44	14
+71	Kirk	Cousins	Quarterback	8	15
+72	Dalvin	Cook	Running Back	33	15
+73	Justin	Jefferson	Wide Receiver	18	15
+74	Adam	Thielen	Wide Receiver	19	15
+75	Eric	Kendricks	Linebacker	54	15
+\.
+
+
+--
+-- TOC entry 3594 (class 0 OID 23407)
+-- Dependencies: 215
+-- Data for Name: teams; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.teams (id, name, city, founded, stadium, coach, division, conference, titles, owner, webpage) FROM stdin;
+1	Dallas Cowboys	Dallas	1960	AT&T Stadium	Mike McCarthy	East	NFC	5	Jerry Jones	https://www.dallascowboys.com
+2	Green Bay Packers	Green Bay	1919	Lambeau Field	Matt LaFleur	North	NFC	13	Green Bay Packers, Inc.	https://www.packers.com
+3	New England Patriots	Foxborough	1959	Gillette Stadium	Bill Belichick	East	AFC	6	Robert Kraft	https://www.patriots.com
+4	Kansas City Chiefs	Kansas City	1960	Arrowhead Stadium	Andy Reid	West	AFC	3	Clark Hunt	https://www.chiefs.com
+5	San Francisco 49ers	San Francisco	1946	Levis Stadium	Kyle Shanahan	West	NFC	5	Denise DeBartolo York	https://www.49ers.com
+6	Pittsburgh Steelers	Pittsburgh	1933	Heinz Field	Mike Tomlin	North	AFC	6	Rooney Family	https://www.steelers.com
+7	Philadelphia Eagles	Philadelphia	1933	Lincoln Financial Field	Nick Sirianni	East	NFC	1	Jeffrey Lurie	https://www.philadelphiaeagles.com
+8	Seattle Seahawks	Seattle	1976	Lumen Field	Pete Carroll	West	NFC	1	Paul Allen Trust	https://www.seahawks.com
+9	Denver Broncos	Denver	1960	Empower Field at Mile High	Sean Payton	West	AFC	3	Walton-Penner Family Ownership Group	https://www.denverbroncos.com
+10	Miami Dolphins	Miami	1966	Hard Rock Stadium	Mike McDaniel	East	AFC	2	Stephen M. Ross	https://www.miamidolphins.com
+11	New York Giants	New York	1925	MetLife Stadium	Brian Daboll	East	NFC	4	John Mara & Steve Tisch	https://www.giants.com
+12	Chicago Bears	Chicago	1920	Soldier Field	Matt Eberflus	North	NFC	9	Virginia Halas McCaskey	https://www.chicagobears.com
+13	Buffalo Bills	Buffalo	1960	Highmark Stadium	Sean McDermott	East	AFC	0	Terry Pegula	https://www.buffalobills.com
+14	Baltimore Ravens	Baltimore	1996	M&T Bank Stadium	John Harbaugh	North	AFC	2	Steve Bisciotti	https://www.baltimoreravens.com
+15	Minnesota Vikings	Minneapolis	1961	U.S. Bank Stadium	Kevin OConnell	North	NFC	0	Zygi Wilf	https://www.vikings.com
+\.
+
+
+--
+-- TOC entry 3604 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: players_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.players_id_seq', 75, true);
+
+
+--
+-- TOC entry 3605 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: teams_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.teams_id_seq', 15, true);
+
+
+--
+-- TOC entry 3449 (class 2606 OID 23422)
+-- Name: players players_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.players
+    ADD CONSTRAINT players_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3447 (class 2606 OID 23414)
+-- Name: teams teams_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.teams
+    ADD CONSTRAINT teams_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3450 (class 2606 OID 23423)
+-- Name: players players_team_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.players
+    ADD CONSTRAINT players_team_fkey FOREIGN KEY (team) REFERENCES public.teams(id) ON DELETE CASCADE;
+
+
+-- Completed on 2024-10-25 13:58:36 CEST
+
+--
+-- PostgreSQL database dump complete
+--
+
