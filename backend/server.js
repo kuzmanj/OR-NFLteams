@@ -2,6 +2,9 @@ const express = require("express");
 const { Client } = require("pg");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const fs = require("fs");
+const path = require("path");
+const { Parser } = require("json2csv");
 
 dotenv.config();
 
@@ -26,6 +29,67 @@ app.use("/public", express.static("public"));
 app.use(express.json());
 
 client.connect();
+
+app.post("/api/update-json", async (req, res) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader) {
+    return res.status(401).send("Pristup zabranjen");
+  }
+
+  try {
+    const teamsResult = await client.query("SELECT * FROM Teams");
+    const teams = teamsResult.rows;
+
+    const jsonStructure = [];
+    for (const team of teams) {
+      const playersResult = await client.query(
+        "SELECT * FROM Players WHERE team = $1",
+        [team.id]
+      );
+
+      const players = playersResult.rows.map((player) => ({
+        Name: player.playername,
+        Surname: player.playersurname,
+        Position: player.position,
+        Jersey_number: player.jerseynumber,
+      }));
+
+      jsonStructure.push({
+        Name: team.name,
+        City: team.city,
+        Founded: team.founded,
+        homeVenue: {
+          "@type": "City",
+          name: team.stadium,
+        },
+        coach: {
+          name: team.coach,
+          "@type": "Person",
+        },
+        Conference: team.conference,
+        Division: team.division,
+        Titles: team.titles,
+        Owner: team.owner,
+        webpage: team.web_page,
+        Players: players,
+      });
+    }
+    const jsonFilePath =
+      "/Users/jankuzman/FER/OR/OR-NFLteams/public/teams.json";
+    const csvFilePath = "/Users/jankuzman/FER/OR/OR-NFLteams//public/data.csv";
+    fs.writeFileSync(jsonFilePath, JSON.stringify(jsonStructure, null, 2));
+
+    const parser = new Parser();
+    const csvData = parser.parse(jsonStructure);
+    fs.writeFileSync(csvFilePath, csvData);
+
+    res.status(200).send("JSON datoteka uspješno ažurirana!");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Greška prilikom generiranja JSON datoteke.");
+  }
+});
 
 app.get("/api/teams", async (req, res) => {
   const search = req.query.search || "";

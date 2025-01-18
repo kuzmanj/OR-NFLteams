@@ -3,10 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.auth0.com/js/auth0/9.24/auth0.min.js"
+      defer
+    ></script>
     <title>NFL teams</title>
   </head>
   <body>
     <h1>Search data</h1>
+
+    <button id="login">Prijava</button>
+    <button id="logout" style="display: none">Odjava</button>
+    <button id="profile" style="display: none">Korisnički profil</button>
+    <button id="update" style="display: none">Azuriraj podatke</button>
+
+    <div id="user-profile" style="display: none">
+      <h2>Korisnički podaci:</h2>
+      <pre id="profile-data"></pre>
+    </div>
 
     <form id="searchForm">
       <label for="attributeSelect">Choose an attribute:</label>
@@ -56,6 +70,137 @@
       </thead>
       <tbody></tbody>
     </table>
+
+    <script>
+      // Konfiguracija Auth0
+      window.onload = function () {
+        // Provjeri da je auth0 SDK učitan prije inicijalizacije
+        if (window.auth0) {
+          const auth0 = new window.auth0.WebAuth({
+            domain: "dev-kslwwoa63aamlzlg.us.auth0.com",
+            clientID: "SlXY76oaTnWyC1YucqLGv2eSjTKJkJbh",
+            redirectUri:
+              "http://127.0.0.1:5500/OR-NFLteams/frontend/datatable.html",
+            responseType: "token id_token",
+            scope: "openid profile email",
+          });
+
+          // Elementi
+          const loginButton = document.getElementById("login");
+          const logoutButton = document.getElementById("logout");
+          const profileButton = document.getElementById("profile");
+          const userProfileDiv = document.getElementById("user-profile");
+          const profileDataPre = document.getElementById("profile-data");
+          const updateData = document.getElementById("update");
+
+          // Prijava korisnika
+          loginButton.addEventListener("click", () => {
+            auth0.authorize();
+          });
+
+          updateData.addEventListener("click", async () => {
+            try {
+              // Dohvati token iz localStorage
+              const idToken = localStorage.getItem("idToken");
+
+              if (!idToken) {
+                alert(
+                  "Niste prijavljeni. Prijavite se kako biste ažurirali datoteke."
+                );
+                return;
+              }
+
+              const response = await fetch(
+                "http://localhost:5004/api/update-json",
+                {
+                  method: "POST",
+                  headers: {
+                    Authorization: `Bearer ${idToken}`,
+                  },
+                }
+              );
+
+              if (response.ok) {
+                alert("Datoteke su uspješno ažurirane!");
+
+                window.location.reload();
+              } else {
+                alert("Greška prilikom ažuriranja datoteka.");
+              }
+            } catch (error) {
+              console.error(error);
+              alert("Došlo je do pogreške prilikom osvježavanja.");
+            }
+          });
+
+          flag = true;
+
+          profileButton.addEventListener("click", () => {
+            flag = !flag;
+            userProfileDiv.style.display = flag ? "none" : "block";
+          });
+
+          // Odjava korisnika
+          logoutButton.addEventListener("click", () => {
+            localStorage.removeItem("accessToken");
+            localStorage.removeItem("idToken");
+            localStorage.removeItem("expiresAt");
+            auth0.logout({
+              returnTo:
+                "http://127.0.0.1:5500/OR-NFLteams/frontend/datatable.html",
+            });
+            updateUI(false);
+          });
+
+          // Provjera autentikacije prilikom učitavanja
+          auth0.parseHash((err, authResult) => {
+            if (authResult && authResult.accessToken && authResult.idToken) {
+              setSession(authResult);
+              updateUI(true);
+            } else if (err) {
+              console.error(err);
+            }
+          });
+
+          // Funkcija za spremanje sesije
+          function setSession(authResult) {
+            const expiresAt = JSON.stringify(
+              authResult.expiresIn * 1000 + new Date().getTime()
+            );
+            localStorage.setItem("accessToken", authResult.accessToken);
+            localStorage.setItem("idToken", authResult.idToken);
+            localStorage.setItem("expiresAt", expiresAt);
+          }
+
+          // Ažuriraj sučelje
+          function updateUI(isAuthenticated) {
+            if (isAuthenticated) {
+              loginButton.style.display = "none";
+              logoutButton.style.display = "block";
+              profileButton.style.display = "block";
+              updateData.style.display = "block";
+
+              const accessToken = localStorage.getItem("accessToken");
+              if (accessToken) {
+                auth0.client.userInfo(accessToken, (err, user) => {
+                  if (err) {
+                    console.error(err);
+                    return;
+                  }
+                  profileDataPre.innerText = JSON.stringify(user, null, 2);
+                  userProfileDiv.style.display = "none";
+                });
+              }
+            } else {
+              loginButton.style.display = "block";
+              logoutButton.style.display = "none";
+              profileButton.style.display = "none";
+              userProfileDiv.style.display = "none";
+            }
+          }
+        }
+      };
+    </script>
 
     <script>
       function displayData(data) {
