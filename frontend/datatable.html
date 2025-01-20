@@ -72,9 +72,7 @@
     </table>
 
     <script>
-      // Konfiguracija Auth0
       window.onload = function () {
-        // Provjeri da je auth0 SDK učitan prije inicijalizacije
         if (window.auth0) {
           const auth0 = new window.auth0.WebAuth({
             domain: "dev-kslwwoa63aamlzlg.us.auth0.com",
@@ -85,7 +83,6 @@
             scope: "openid profile email",
           });
 
-          // Elementi
           const loginButton = document.getElementById("login");
           const logoutButton = document.getElementById("logout");
           const profileButton = document.getElementById("profile");
@@ -93,14 +90,12 @@
           const profileDataPre = document.getElementById("profile-data");
           const updateData = document.getElementById("update");
 
-          // Prijava korisnika
           loginButton.addEventListener("click", () => {
             auth0.authorize();
           });
 
           updateData.addEventListener("click", async () => {
             try {
-              // Dohvati token iz localStorage
               const idToken = localStorage.getItem("idToken");
 
               if (!idToken) {
@@ -140,7 +135,6 @@
             userProfileDiv.style.display = flag ? "none" : "block";
           });
 
-          // Odjava korisnika
           logoutButton.addEventListener("click", () => {
             localStorage.removeItem("accessToken");
             localStorage.removeItem("idToken");
@@ -152,7 +146,6 @@
             updateUI(false);
           });
 
-          // Provjera autentikacije prilikom učitavanja
           auth0.parseHash((err, authResult) => {
             if (authResult && authResult.accessToken && authResult.idToken) {
               setSession(authResult);
@@ -162,7 +155,6 @@
             }
           });
 
-          // Funkcija za spremanje sesije
           function setSession(authResult) {
             const expiresAt = JSON.stringify(
               authResult.expiresIn * 1000 + new Date().getTime()
@@ -172,7 +164,6 @@
             localStorage.setItem("expiresAt", expiresAt);
           }
 
-          // Ažuriraj sučelje
           function updateUI(isAuthenticated) {
             if (isAuthenticated) {
               loginButton.style.display = "none";

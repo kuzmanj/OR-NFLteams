@@ -56,23 +56,26 @@ app.post("/api/update-json", async (req, res) => {
       }));
 
       jsonStructure.push({
-        Name: team.name,
-        City: team.city,
-        Founded: team.founded,
-        homeVenue: {
-          "@type": "City",
-          name: team.stadium,
+        "@context": {
+          "@vocab": "http://schema.org/",
+          Name: team.name,
+          City: team.city,
+          Founded: team.founded,
+          homeVenue: {
+            "@type": "City",
+            name: team.stadium,
+          },
+          coach: {
+            name: team.coach,
+            "@type": "Person",
+          },
+          Conference: team.conference,
+          Division: team.division,
+          Titles: team.titles,
+          Owner: team.owner,
+          webpage: team.web_page,
+          Players: players,
         },
-        coach: {
-          name: team.coach,
-          "@type": "Person",
-        },
-        Conference: team.conference,
-        Division: team.division,
-        Titles: team.titles,
-        Owner: team.owner,
-        webpage: team.web_page,
-        Players: players,
       });
     }
     const jsonFilePath =
@@ -180,7 +183,6 @@ app.get("/api/teams/:id", async (req, res) => {
   }
 });
 
-// Dohvati sve timove iz određene divizije
 app.get("/api/teams/division/:division", async (req, res) => {
   const { division } = req.params;
 
@@ -212,7 +214,6 @@ app.get("/api/teams/division/:division", async (req, res) => {
   }
 });
 
-// Dohvati timove koji su osvojili određeni broj naslova
 app.get("/api/teams/titles/:count", async (req, res) => {
   const { count } = req.params;
 
@@ -243,7 +244,6 @@ app.get("/api/teams/titles/:count", async (req, res) => {
   }
 });
 
-// Dohvati sve timove osnovane prije određene godine
 app.get("/api/teams/founded-before/:year", async (req, res) => {
   const { year } = req.params;
 
@@ -272,7 +272,6 @@ app.get("/api/teams/founded-before/:year", async (req, res) => {
   }
 });
 
-// POST novi tim
 app.post("/api/teams", async (req, res) => {
   const { name, city, founded, stadium, division, titles } = req.body;
   try {
@@ -293,7 +292,6 @@ app.post("/api/teams", async (req, res) => {
   }
 });
 
-// PUT ažuriranje tima prema ID-u
 app.put("/api/teams/:id", async (req, res) => {
   const { id } = req.params;
   const { name, city, founded, stadium, division, titles } = req.body;
@@ -318,7 +316,6 @@ app.put("/api/teams/:id", async (req, res) => {
   }
 });
 
-// DELETE tim prema ID-u
 app.delete("/api/teams/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -346,7 +343,6 @@ app.use((req, res) => {
   res.status(404).json(createResponse("Not Found", "Endpoint not found"));
 });
 
-// Middleware za rukovanje greškama
 app.use((err, req, res, next) => {
   console.error(err);
   res
@@ -356,7 +352,6 @@ app.use((err, req, res, next) => {
     );
 });
 
-//ewerfwefwew
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
 });
